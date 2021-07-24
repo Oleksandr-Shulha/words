@@ -13,8 +13,14 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 @RestController
 public class WordsController {
+    private WordsService wordsService;
+
+    public WordsController(WordsService wordsService) {
+        this.wordsService = wordsService;
+    }
+
     @RequestMapping(value = "/words", method = RequestMethod.POST)
     public Map<String, List<String>> post(@RequestBody Map<String, List<String>> words) {
-        return  new WordsService().validateWords(words).getWords();
+        return wordsService.validateWords(words).getWords();
     }
 }
