@@ -6,7 +6,6 @@ import lombok.Data;
 
 @Data
 public class Game {
-    public Map<String, List<String>> words;
-    public boolean gameIsValid;
-
+    private Map<String, List<String>> words;
+    private boolean gameIsValid;
 }
